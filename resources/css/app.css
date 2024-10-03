@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family:sans-serif;
+}
+
+.redTest {
+    background-color: red;
+    color:orange;
+    padding:100px;
+    border-radius: 40px;
+    transition: .3s;
+
+}
+
+.redTest:hover {
+    background-color: black;
+    box-shadow: 3px 3px 10px red;
+    transition: .3s;
+}
+
+/* FAQ SECTION STYLING (DETAIL-SUMMARY TAGS) */
+
+
+details{
+  background-color: #303030;
+  color: #fff;
+  font-size: 18px;
+  transition:.3s;
+}
+
+details:hover {
+  transition:.3s;
+  cursor:pointer;
+}
+
+summary {
+  padding: .5em 1.3rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;  
+  transition:.5s;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:after{
+  content: "\002B";
+  transition:.5s;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
+}
+
+details[open] summary:after{
+  content: "\00D7";
+}
+
+details[open] div{
+  padding: .5em 1em;
+}
+
+
+footer {
+  text-align: center;
+  padding: 3px;
+  color: white;
+  margin-top:50px;
+}
+
+
