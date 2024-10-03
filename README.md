@@ -1,3 +1,12 @@
+A talent network app developed for an Art College with PHP's Laravel framework. 
+
+The app lets users register and login, set their profiles and publish a variety of posts based on specifics of the context on every art or role complemented with images, URLs and descriptions. It makes use of a lot of the marvelous helpers included in Laravel, but does not use starter kits like Breeze or Jet. It basically functions as a network hub for students around the world to connect within the school's enviroment and to help browse dfferent kind of projects, talents and crew members.
+
+As of now, the app's version is 1.0 and will keep receiving updates and evaluations for further improvement.
+
+Thank you Laravel. Thank you Laracast. Thanks Jeffrey. Thank you world...
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
