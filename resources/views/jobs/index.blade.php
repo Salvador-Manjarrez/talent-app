@@ -12,7 +12,7 @@
         <section class="text-center pt-6">
         <img style="max-width:30%; margin:0 auto;" src=" {{ Vite::asset('resources/images/raindance-logo-white.png') }} " alt="">
             <x-panel>
-                <h1 class="font-bold text-4xl  p-5"> Welcome to Raindance Talent Network!</h1>
+                <h1 class="font-bold text-4xl  p-5"> Welcome to the Raindance Talent Network!</h1>
 
                 <div class="px-5">
                     <p class="p-5 text-lg mt-3 text-center w-50"> We connect the Raindance community and make everything possible with a place where they can find and create contacts, connections and collaborations worldwide!
