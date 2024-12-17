@@ -9,9 +9,9 @@
                         <option value="look"> I am looking for</option>
                         <option value="offer"> I am offering </option>
             </x-forms.select>
-            <x-forms.input label="Title" name="title" placeholder="Project Title" maxlength="60"/>
-            <x-forms.input label="Description" name="description" placeholder="Your description here..."/>
-            <x-forms.input label="Image - (Type any text for now)" name="img" placeholder="..."/> 
+            <x-forms.input label="Title*" name="title" placeholder="Project Title" maxlength="60"/>
+            <x-forms.input label="Description*" name="description" placeholder="Your description here..."/>
+            <x-forms.input label="Image* - (Type any text for now)" name="img" placeholder="..."/> 
         </x-panel>
 
         <x-panel>
@@ -19,11 +19,11 @@
             <div class="grid lg:grid-cols-2 gap-x-4 gap-y-8">
               <!-- First Column -->
                 <div>  
-                <x-forms.input label="Link to work" name="url" placeholder="https://acme.com/careers/actress"/>
+                <x-forms.input label="Link to work*" name="url" placeholder="https://acme.com/careers/actress"/>
                 </div>
              <!-- Second Column -->
                 <div>
-                    <x-forms.select label="Location" name="location">
+                    <x-forms.select label="Location*" name="location">
                         <option selected disabled> Location </option>
                         <option> London, United Kingdom</option>
                         <option> Guadalajara, México</option>
@@ -42,7 +42,7 @@
             </div>
              <!-- END of 2 columns div -->
 
-            <x-forms.input label="Contact" name="contact" placeholder="diana@contact.com"/>
+            <x-forms.input label="Contact*" name="contact" placeholder="diana@contact.com"/>
 
             <x-forms.select name="type" label="" hidden>
                 <option selected> Project</option>
@@ -59,7 +59,7 @@
                     <p class="text-sm text-red-500 mt-1">{{ $error }}</p>
                 @endif
 
-                <h2 class="font-bold">* Required Crew Roles:</h2>
+                <h2 class="font-bold">Required Crew Roles: *</h2>
                 <p>Choose all that apply.</p>
 
                 <label>
@@ -129,7 +129,7 @@
                     <p class="text-sm text-red-500 mt-1">{{ $error }}</p>
                 @endif
 
-                <h2 class="font-bold">* Required Talent:</h2>
+                <h2 class="font-bold">Required Talent: *</h2>
                 <p>Choose all that apply.</p>
 
                 <label>
