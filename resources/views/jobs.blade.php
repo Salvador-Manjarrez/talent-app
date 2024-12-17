@@ -3,7 +3,7 @@
     <hr>
 
     <div class="mt-10">
-            <a href="/">
+            <a href="/#categories">
                 <x-btn-1>
                     Make another search >
                 </x-btn-1>

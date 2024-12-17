@@ -1,9 +1,20 @@
+@import "@fortawesome/fontawesome-free/css/all.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-  font-family:sans-serif;
+  font-family: poppins;
+}
+
+.layout-1 {
+  padding:2.5rem; /* 40px */
+}
+
+.footer-logo {
+  max-width:15%;
+  margin:0 auto;
 }
 
 .redTest {
@@ -72,6 +83,41 @@ footer {
   padding: 3px;
   color: white;
   margin-top:50px;
+}
+
+
+/* MOBILE RESPONSIVE TESTING */
+
+@media screen and (max-width: 450px) {
+  .layout-1 {
+      padding: .5rem;
+  }
+  .footer-logo {
+    max-width:50%;
+    margin:0 auto;
+  }
+
+  .nav-hidden {
+    display:none;
+  }
+
+  .mob-hidden {
+    display:none;
+  }
+  
+}
+
+/* TABLET MD - LG SIZE */
+
+@media screen and (max-width: 1024px) {
+  .footer-logo {
+    max-width:30%;
+    margin:0 auto;
+  }
+
+  .nav-hidden {
+    display:none;
+  }
 }
 
 

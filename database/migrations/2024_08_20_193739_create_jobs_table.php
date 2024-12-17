@@ -18,12 +18,30 @@ return new class extends Migration
             $table->string('title');
             $table->string('type');
             $table->string('url');
-            $table->string('salary');
+            $table->string('salary')->nullable();
             $table->text('description');
             $table->string('location');
             $table->string('img');
             $table->boolean('featured')->default(false);
             $table->timestamps();
+
+            $table->string('nationality')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('p_talent')->nullable(); /* Select all that apply: Actor, Dancer, Voice Actor"*/
+            $table->string('p_roles')->nullable(); /*All that apply from: Director, Writer, Editor, Composer*/ 
+            $table->string('t_eye_color')->nullable();
+            $table->string('t_hair_color')->nullable();
+            $table->string('t_hair_length')->nullable();
+            $table->string('t_weight')->nullable();
+            $table->string('t_height')->nullable();
+            $table->string('t_appearance')->nullable();
+            $table->string('t_age_range')->nullable();
+            $table->json('t_type')->nullable();
+            $table->json('c_type')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('insta')->nullable();
+            $table->string('fb')->nullable();
+            $table->string('status')->nullable();
         });
     }
 

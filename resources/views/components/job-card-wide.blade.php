@@ -16,9 +16,10 @@
                                     {{ $job->title }}
                                     </a>
                                 </h3>
-
-                            <p class="text-sm text-gray-400 mt-auto"> {{ $job->salary }} </p>
-                            <p class="text-sm text-gray-400 mt-auto"> {{ $job->location }} </p>
+                            @if($job->salary)
+                            <p class="text-sm text-gray-400 mt-auto"> <i class="fa-solid fa-dollar-sign fa-xl m-5"> </i> {{ $job->salary }} </p>
+                            @endif
+                            <p class="text-sm text-gray-400 mt-auto"> <i class="fa-solid fa-location-dot fa-xl m-5"> </i> {{ $job->location }} </p>
 
                             <a href="/jobs/details/{{ $job['id'] }}">
                             <x-btn-1> + DETAILS </x-btn-1>
@@ -26,7 +27,7 @@
 
                     </div>
 
-                    <div>
+                    <div class="mob-hidden">
 
                         @foreach($job->tags as $tag)
                             <x-tag :$tag />

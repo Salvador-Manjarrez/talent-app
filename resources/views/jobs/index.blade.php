@@ -2,7 +2,7 @@
     <div class="space-y-10">
 
     @if (session()->has('success'))
-    <div class="alert alert-success" id="message_id" style="color:white; background-color:green; padding:20px; margin:0 auto;">
+    <div class="alert alert-success" id="message_id" style="color:white; background-color:green; padding:20px; margin:15px auto;">
         {{ session('success') }}
     </div>
 
@@ -13,6 +13,7 @@
         <img style="max-width:30%; margin:0 auto;" src=" {{ Vite::asset('resources/images/raindance-logo-white.png') }} " alt="">
             <x-panel>
                 <h1 class="font-bold text-4xl  p-5"> Welcome to Raindance Talent Network!</h1>
+
                 <div class="px-5">
                     <p class="p-5 text-lg mt-3 text-center w-50"> We connect the Raindance community and make everything possible with a place where they can find and create contacts, connections and collaborations worldwide!
                         What are you waiting for? Start browsing and posting refreshing publications for all kind of Crews, Projects, Jobs and Talents.
@@ -23,7 +24,7 @@
                     </a>
 
                     <a href="/about">
-                    <x-btn-2>Learn More</x-btn-2> 
+                    <x-btn-2>Learn More!</x-btn-2> 
                     </a>
 
                 </div>
@@ -55,7 +56,7 @@
             <x-page-heading> CATEGORIES </x-page-heading>
 
             <x-panel>
-            <div class="grid lg:grid-cols-2 gap-4 mt-8">
+            <div class="grid lg:grid-cols-2 gap-4 mt-8" id="categories">
                 
                 <div> 
                     <a href="/crew">
@@ -164,13 +165,9 @@
             <x-section-heading> NEWS </x-section-heading>
             <div class="mt-6 mb-5 space-y-6" id="newpanel">
                 <x-panel>
-                    <x-page-heading-2> A test new panel</x-page-heading-2>
+                    <x-page-heading-2>A NEWS PANEL</x-page-heading-2>
                     <x-image-test :width="400"/>
-                    <p class="p-5 text-left"> This is a new testing panel, we are looking at it to see if it would be viable to showcase specific information,
-                         news or other kind of content apart from the conventional
-                        posts that the app supports already. Woooooh!! Fireeeeee! 
-                        <br>
-                        <br>
+                    <p class="p-5 text-left"> 
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
                          in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 

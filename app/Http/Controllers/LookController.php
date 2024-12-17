@@ -45,4 +45,8 @@ class LookController extends Controller
     public function help() {
         return view('help');
     }
+
+    public function posting() {
+        return view('posting');
+    }
 }

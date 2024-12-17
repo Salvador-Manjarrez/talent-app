@@ -11,11 +11,37 @@
                         </a>
                     </h3>
 
-                    <h4 class="text-red-500 text-xl font-bold"> {{ $job->type }} </h4>
-                    <p class="text-md mt-4"> {{ $job->salary }} </p>
-                    <p class="text-md mt-4"> {{ $job->location }} </p>
+                    <h4 class="text-red-500 text-xl font-bold">
+                         @switch($job->type)
+                            @case('Job')
+                            <i class="fa-solid fa-briefcase fa-lg m-5">  </i>
+                                @break
+                        
+                            @case('Talent')
+                            <i class="fa-regular fa-star fa-lg m-5">  </i> 
+                                @break
+                        
+                            @case('Crew')
+                            <i class="fa-solid fa-screwdriver-wrench fa-lg m-5">  </i> 
+                                @break
+                        
+                            @case('Project')
+                            <i class="fa-solid fa-list-check fa-lg m-5">  </i> 
+                                @break
+                        
+                            @endswitch
+
+                         {{ $job->type }}
+
+                     </h4>
+                     @if($job->status == 'look')
+                    <p class="text-md mt-4"> <i class="fa-solid fa-person-circle-question fa-xl m-5"> </i> Looking for </p>
+                    @elseif($job->status == 'offer')
+                    <p class="text-md mt-4"> <i class="fa-solid fa-hand-holding-heart fa-xl m-5"> </i> Presenting </p>
+                    @endif
+                    <!-- <p class="text-md mt-4"> <i class="fa-solid fa-location-dot fa-xl m-5"> </i> {{ $job->location }} </p> -->
                     <a href="/jobs/details/{{ $job['id'] }}">
-                    <x-btn-1>+ DETAILS</x-btn-1>
+                    <x-btn-1> SEE MORE ></x-btn-1>
                     </a>
                     
                     

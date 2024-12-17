@@ -1,62 +1,97 @@
 <x-layout>
 
-    <x-page-heading> Post Details </x-page-heading>
+          @switch($job->type)
+          @case('Job')
+          <x-page-heading-2> <i class="fa-solid fa-briefcase fa-xl m-5"></i> JOB </x-page-heading-2>
+              @break
+      
+          @case('Talent')
+          <x-page-heading-2> <i class="fa-regular fa-star fa-xl m-5"></i> TALENT </x-page-heading-2>
+              @break
+    
+          @case('Crew')
+          <x-page-heading-2> <i class="fa-solid fa-screwdriver-wrench fa-xl m-5"></i> CREW </x-page-heading-2>
+              @break
+    
+          @case('Project')
+          <x-page-heading-2> <i class="fa-solid fa-list-check fa-xl m-5"></i> PROJECT </x-page-heading-2>
+              @break
+    
+           @endswitch
 
 
   <x-panel>
 
         <div class="grid lg:grid-cols-2 gap-4">
                 <div>  
+                    <h1 class="font-bold text-left text-2xl mb-8 mt-6 ml-6 text-red-500" > {{ $job->title }} </h1 > 
+                    @if($job->status == 'offer')
+                          <x-page-heading-3> <i class="fa-solid fa-hand-holding-heart fa-xl m-5"></i> Presenting </x-page-heading-3>
+                    @elseif($job->status == 'look')
+                          <x-page-heading-3> <i class="fa-solid fa-person-circle-question fa-xl m-5"></i> Looking for </x-page-heading-3>
+                    @endif
+
                     <x-image-test :width="600"/>
                 </div>
-                <!-- ... -->
+                
+                
                 <div>
 
                         <div class="p-5">
 
-                        <x-page-heading-2> {{ $job->title }} </x-page-heading-2> 
-
-                            @foreach($job->tags as $tag)
-                                                <x-tag :$tag />
-                            @endforeach
-                            <br>
-
-                            <br>
-                            <x-page-heading-3> Type: </x-page-heading-3>
-                            <p class="text-lg text-lef"> {{ $job->type }} </p>
-                            <br>
-
-                            @auth
-
-                            <x-page-heading-3> Description: </x-page-heading-3>
-                            <p class="text-lg text-lef"> {{ $job->description }} </p>
-                            <br>
-
-                            <x-carbon-location class="w-10 mt-3"/>
-                            <p class="text-lg text-lef"> {{ $job->location }} </p>
-                            <br>
-
-                            <!-- <x-page-heading-3> Salary: </x-page-heading-3>
-                            <p class="text-lg text-lef"> {{ $job->salary }} </p>
-                            <br> -->
+                      
+                              @auth
 
 
-                            <br>
-                            <br>
+                              <x-page-heading-3> Description: </x-page-heading-3>
+                              <p class="text-lg text-left empty:hidden"> {{ $job->description }} </p>
+                              <br>
 
-                            <a href="mailto:{{ $job->employer->user->email }}?subject={{ $job->title }}"> 
-                            <x-btn-1> SEND EMAIL > </x-btn-1>
-                            </a>
+                              <!-- TALENT SPECIFICS TYPES -->
+                               @if($job->t_type)
+                              <x-page-heading-3> <i class="fa-solid fa-star fa-xl m-5"></i> Talent  Types: </x-page-heading-3>
+                               @foreach($job->t_type as $tt)
+                                                  <x-label> {{ $tt }} </x-label>
+                              @endforeach
+                              <br>
+                              @endif
 
-                            <x-carbon-logo-instagram style="display:inline" class="w-10"/>
-                            <x-carbon-logo-facebook style="display:inline" class="w-10" />
+                               @if($job->c_type)
+                              <x-page-heading-3> <i class="fa-solid fa-wrench fa-xl m-5"></i> Crew  Types: </x-page-heading-3>
+                               @foreach($job->c_type as $cc)
+                                                  <x-label> {{ $cc }} </x-label>
+                              @endforeach
+                              <br> 
+                              @endif
 
-                            @endauth
+                              <!-- JOB SPECIFICS -->
 
-                            @guest
-                            <x-page-heading-3> <a href="/register"><u>Sign Up</u></a> or <a href="/login"><u>Log In</u></a> to see more about this post.</x-page-heading-3>
+                              @if($job->type == 'Job')
+                              <div class="flex">
+                                <i class="fa-solid fa-hand-holding-dollar fa-xl m-5">  </i>
+                                <p class="ml-3"> Salary: <strong> {{ $job->salary }} </strong> </p>
+                              </div>
+                              <div class="flex">
+                                <i class="fa-solid fa-location-dot fa-xl m-5">  </i>
+                                <p class="ml-3"> Location: <strong> {{ $job->location }} </strong> </p>
+                              </div>
+                              @endif
+                              
+                              <!-- TAGS -->
 
-                            @endguest
+                              <p> <strong> <i class="fa-solid fa-tags fa-xl m-5"></i> Tags: </strong> </p>
+                              <br>
+                              @foreach($job->tags as $tag)
+                                                  <x-tag :$tag />
+                              @endforeach
+                              <br> 
+
+                              @endauth
+
+                              @guest
+                              <x-page-heading-3> <a href="/register"><u>Sign Up</u></a> or <a href="/login"><u>Log In</u></a> to see more about this post.</x-page-heading-3>
+
+                              @endguest
 
                         </div>
                 </div>
@@ -64,21 +99,97 @@
 
   </x-panel>
 
- @auth
+    <!-- ======= TALENT DETAILS ICONS ====== -->
+
+    @auth
+
+    @if($job->type == 'Talent')
+
+    <x-panel>
+        
+      <h1  class="mb-5 p-3 font-bold text-2xl">- Talent Details - </h1>
+
+      <div class="grid lg:grid-cols-2 gap-4 text-left"> 
+                    <div> 
+                          <div class="flex">
+                            <i class="fa-solid fa-location-dot fa-xl m-5">  </i>
+                            <p class="ml-3"> Location: <strong> {{ $job->location }} </strong> </p>
+                          </div>
+                          <div class="flex">
+                            <i class="fa-solid fa-eye fa-xl m-5">  </i>
+                            <p class="ml-3">Eye Color: <strong> {{ $job->t_eye_color }} </strong> </p>
+                          </div>
+                          <div class="flex">
+                            <i class="fa-solid fa-face-smile fa-xl m-5">  </i>
+                            <p class="ml-3"> Hair Color: <strong> {{ $job->t_hair_color }} </strong> </p>
+                          </div>
+                          <div class="flex">
+                            <i class="fa-solid fa-face-smile fa-xl m-5">  </i>
+                            <p class="ml-3"> Hair Length: <strong> {{ $job->t_hair_length }} </strong> </p>
+                          </div>
+                    </div>
+
+                    <div>
+                        <div class="flex">
+                          <i class="fa-solid fa-weight-scale fa-xl m-5">  </i>
+                          <p class="ml-3"> Weight: <strong> {{ $job->t_weight }} </strong> </p>
+                        </div>
+                        <div class="flex">
+                          <i class="fa-solid fa-ruler-vertical fa-xl m-5">  </i>
+                          <p class="ml-3"> Height: <strong> {{ $job->t_height }} </strong> </p>
+                        </div>
+                        <div class="flex">
+                          <i class="fa-solid fa-arrow-up-wide-short fa-xl m-5">  </i>
+                          <p class="ml-3"> Play Age Range: <strong> {{ $job->t_age_range }} </strong> </p>
+                        </div>
+                        <div class="flex">
+                            <i class="fa-solid fa-genderless fa-xl m-5">  </i>
+                            <p class="ml-3"> Gender: <strong> {{ $job->gender }} </strong> </p> 
+                        </div>
+                    </div>
+          </div>
+
+          
+          <p style="text-wrap:wrap; overflow-wrap: break-word;">
+              <i class="fa-solid fa-face-smile fa-xl m-5"> </i> 
+                <strong> Appearance: </strong> <br> {{ $job->t_appearance }} 
+          </p>
+
+      </x-panel>
+
+      @elseif($job->type !== 'Talent')
+      @endif
+
+  <!-- ====== "POSTED BY" CARD ========= -->
+
+
   <x-panel>
+    <h1  class="mb-5 font-bold text-2xl"> <i class="fa-solid fa-circle-user fa-xl m-5">  </i>   Contact </h1>
     <x-employer-logo :employer="$job->employer" :width="92"/>
 
-    <h1 class="mt-3">Posted by:</h1>
+    <h1 class="mt-3">by:</h1>
 
     <x-page-heading-3>
          {{ $job->employer->name }} 
      </x-page-heading-3>
      <br>
-     <p> Created: <strong>  {{ $job->created_at }} </strong> </p>
+     <p> Created at: <strong>  {{ $job->created_at }} </strong> </p>
 
      <a href=" {{ $job->url }} " target="_blank"> 
-        <x-btn-2> See Website ></x-btn-2>
+        <x-btn-2> <i class="fa-solid fa-link fa-xl m-5">  </i> Link to work ></x-btn-2>
      </a>
+
+
+     <a href="mailto:{{ $job->employer->user->email }}?subject={{ $job->title }}"> 
+                              <x-btn-1> <i class="fa-solid fa-envelope fa-xl m-5">  </i> SEND EMAIL > </x-btn-1>
+                              </a>
+                              @if($job->insta)
+                              <a href=" {{ $job->insta }}" target="_blank"><x-carbon-logo-instagram style="display:inline" class="w-10"/></a>
+                              @endif
+                              @if($job->fb)
+                              <a href=" {{ $job->fb }}" target="_blank"><x-carbon-logo-facebook style="display:inline" class="w-10"/></a>
+                              @endif
+
 
   </x-panel>
   @endauth

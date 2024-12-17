@@ -33,4 +33,14 @@ class Job extends Model
         return $this->belongsTo(Employer::class);
     }
 
+       /**
+     * Typecast for protection.
+     *
+     * @var array
+     */
+    protected $casts = [
+        't_type' => 'array',  // Allowing tables in JSON Arrays be transformed to strings
+        'c_type' => 'array',  
+    ];
+
 }

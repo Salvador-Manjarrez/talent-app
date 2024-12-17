@@ -10,7 +10,7 @@ export default {
         
       },
       fontFamily: {
-        "handjet" : ["Handjet", "sans-serif"]
+        "poppins" : ["Poppins", "sans-serif"]
       },
       fontSize: {
         "2xs": "10px"

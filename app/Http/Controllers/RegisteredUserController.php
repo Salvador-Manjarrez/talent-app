@@ -46,7 +46,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect('/')->with('success', 'Form submitted successfully!');
+        return redirect('/posting')->with('success', 'Form submitted successfully!');
     }
 
  

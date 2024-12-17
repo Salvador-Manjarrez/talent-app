@@ -27,6 +27,24 @@ class JobFactory extends Factory
             'img' => fake()->imageUrl(),
             'featured' => false ,
             'employer_id' => Employer::factory(),
+            'nationality' => 'Mexican',
+            'contact' => 'example',
+            'gender' => 'Genderless',
+            'p_talent' => 'example', /* Select all that apply: Actor, Dancer, Voice Actor"*/
+            'p_roles' => 'example', /*All that apply from: Director, Writer, Editor, Composer*/ 
+            't_eye_color' => 'example',
+            't_hair_color' => 'example',
+            't_hair_length' => 'example',
+            't_weight' => 'example',
+            't_height' => 'example',
+            't_appearance' => 'example',
+            't_age_range' => 'example',
+            't_type' => ['Example', 'Testing', 'Demo'],
+            'c_type' => ['Example', 'Testing', 'Demo'], 
+            'insta' => fake()->url,
+            'fb' => fake()->url,
+            'status' => fake()->randomElement(['look', 'offer']),
+
         ];
     }
 }

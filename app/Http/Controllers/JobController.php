@@ -43,6 +43,22 @@ class JobController extends Controller
         return view('jobs.create');
     }
 
+    /*TESTING FUNCTIONS FOR SPECIFIC CREATES*/ 
+    public function create_t()
+    {
+        return view('jobs.create-t');
+    }
+
+    public function create_c()
+    {
+        return view('jobs.create-c');
+    }
+
+    public function create_p()
+    {
+        return view('jobs.create-p');
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -57,6 +73,10 @@ class JobController extends Controller
             'url' => ['required', 'active_url'],
             'img' => ['required'],
             'tags' => ['nullable'],
+            'insta' => ['nullable', 'active_url'],
+            'fb' => ['nullable', 'active_url'],
+            'status' => ['required'],
+
         ]);
 
         $attributes['featured'] = $request->has('featured');
@@ -69,7 +89,120 @@ class JobController extends Controller
             }
         }
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Post published successfully!');
+    }
+
+    /* TESTING STORE F FOR T */
+    public function store_t(Request $request)
+    {
+       $attributes = $request->validate([
+            'title' => ['required'],  
+            'description' => ['required'],
+            'salary' => ['required'],
+            'location' => ['required'],
+            'type' => ['required', Rule::in(['Crew', 'Job', 'Talent', 'Project'])],
+            'url' => ['required', 'active_url'],
+            'img' => ['required'],
+            'tags' => ['nullable'],
+            'gender' => ['required'],
+            't_eye_color' => ['required'],
+            't_hair_color' => ['required'],
+            't_hair_length' => ['required'],
+            't_weight' => ['required'],
+            't_height' => ['required'],
+            't_age_range' => ['required'],
+            't_appearance' => ['required'],
+            'nationality' => ['required'],
+            'contact' => ['required'],
+            't_type' => ['nullable'],
+            'insta' => ['nullable', 'active_url'],
+            'fb' => ['nullable', 'active_url'],
+            'status' => ['required'],
+
+        ]);
+
+        $attributes['featured'] = $request->has('featured');
+
+        $job = Auth::user()->employer->jobs()->create(Arr::except($attributes, 'tags'));
+
+        if($attributes['tags'] ?? false) {
+            foreach (explode(',', $attributes['tags']) as $tag) {
+                $job->tag($tag);
+            }
+        }
+
+        return redirect('/')->with('success', 'Post published successfully!');
+
+    }
+
+
+
+    public function store_c(Request $request)
+    {
+       $attributes = $request->validate([
+            'title' => ['required'],  
+            'description' => ['required'],
+            'salary' => ['required'],
+            'location' => ['required'],
+            'type' => ['required', Rule::in(['Crew', 'Job', 'Talent', 'Project'])],
+            'url' => ['required', 'active_url'],
+            'img' => ['required'],
+            'tags' => ['nullable'],
+            'gender' => ['required'],
+            'nationality' => ['required'],
+            'contact' => ['required'],
+            'c_type' => ['required'],
+            'insta' => ['nullable', 'active_url'],
+            'fb' => ['nullable', 'active_url'],
+            'status' => ['required'],
+
+        ]);
+
+        $attributes['featured'] = $request->has('featured');
+
+        $job = Auth::user()->employer->jobs()->create(Arr::except($attributes, 'tags'));
+
+        if($attributes['tags'] ?? false) {
+            foreach (explode(',', $attributes['tags']) as $tag) {
+                $job->tag($tag);
+            }
+        }
+
+        return redirect('/')->with('success', 'Post published successfully!');
+
+    }
+
+
+    public function store_p(Request $request)
+    {
+       $attributes = $request->validate([
+            'title' => ['required'],  
+            'description' => ['required'],
+            'location' => ['required'],
+            'type' => ['required', Rule::in(['Crew', 'Job', 'Talent', 'Project'])],
+            'url' => ['required', 'active_url'],
+            'img' => ['required'],
+            'tags' => ['nullable'],
+            'contact' => ['required'],
+            'c_type' => ['required'],
+            't_type' => ['required'],
+            'insta' => ['nullable', 'active_url'],
+            'fb' => ['nullable', 'active_url'],
+            'status' => ['required'],
+
+        ]);
+
+        $attributes['featured'] = $request->has('featured');
+
+        $job = Auth::user()->employer->jobs()->create(Arr::except($attributes, 'tags'));
+
+        if($attributes['tags'] ?? false) {
+            foreach (explode(',', $attributes['tags']) as $tag) {
+                $job->tag($tag);
+            }
+        }
+
+         return redirect('/')->with('success', 'Post published successfully!');
     }
 
     /**
@@ -79,6 +212,7 @@ class JobController extends Controller
     {
         return view ('jobs.show', ['job' => $job] );
     }
+
 
     /**
      * Show the form for editing the specified resource.

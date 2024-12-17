@@ -17,7 +17,7 @@
 
        <x-page-heading-2> Profile Information </x-page-heading-2> 
 
-       <p class="p-3"> Your profile information will appear in all your posts.</p>
+       <p class="p-3"> <i class="fa-solid fa-circle-exclamation fa-xl m-5"> </i> The following information will appear in all your posts.</p>
        <x-forms.input label="Profile Name" name="employer" placeholder="eg. Raindance Film School" />
        <x-forms.input label="Profile Picture (Only .PNG, .JPG or .WEBP)" name="logo" type="file" />
 

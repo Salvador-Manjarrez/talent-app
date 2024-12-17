@@ -11,9 +11,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
+<!-- POPPINS font -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 </head>
 
@@ -23,15 +25,15 @@
 
 
 
-    <div class="px-10 sticky top-0">
+    <div class="layout-1">
         <nav class="flex justify-between items-center py-4 border-b border-white/20 bg-black shadow-lg"> 
             <div>
                 <a href="/">
-                    <img style="width: 10rem" src=" {{ Vite::asset('resources/images/raindance-logo-white.png') }} " alt="">
+                    <img style="width: 10rem" class="nav-hidden" src=" {{ Vite::asset('resources/images/raindance-logo-white.png') }} " alt="Raindance Film School Logo">
                 </a>
             </div>
             <div class="space-x-6 font-bold">
-                <a href="/" class="hover:text-red-500 transition-colors duration-300">Home</a>
+                <a href="/" class="hover:text-red-500 transition-colors duration-300"><i class="fa-solid fa-house fa-xl m-5"></i></a>
                 <a href="/#newpanel" class="hover:text-red-500 transition-colors duration-300">News</a>
                 <a href="/help" class="hover:text-red-500 transition-colors duration-300">Help</a>
                 <a href="/#search" class="hover:text-red-500 transition-colors duration-300">Search</a>
@@ -42,11 +44,11 @@
             @auth
             <div class="space-x-6 font-bold flex">
 
-            <p class="mt-5 text-md"> Welcome! <p class="mt-5 text-md text-red-500"> {{ Auth::user()->name }} </p> </p>
+            <p class="mt-5 text-md nav-hidden">Hi!<p class="mt-5 text-md text-red-500 nav-hidden">{{ Auth::user()->name }}</p> </p>
                 
-                <a href="/jobs/create">
+                <a href="/posting ">
 
-                   <x-btn-1> Make a Post!</x-btn-1>
+                   <x-btn-1> POST  <i class="fa-solid fa-circle-plus fa-xl p-3"></i> </x-btn-1> 
                    
                 </a>
 
@@ -55,7 +57,10 @@
                     @csrf
                     @method('DELETE')
 
-                    <button class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900 mt-5">
+                    <button class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800  
+                    focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5
+                     py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900 mt-5">
+                     <i class="fa-solid fa-door-open fa-xl p-3"></i>
                      Log Out   
                     </button>
 
@@ -96,11 +101,15 @@
 
     </div>
 
+    <!--
+
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
+
+    -->
 
 
 </body>
