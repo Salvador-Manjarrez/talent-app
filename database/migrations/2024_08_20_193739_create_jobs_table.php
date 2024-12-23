@@ -17,11 +17,11 @@ return new class extends Migration
             $table->foreignIdFor(Employer::class);
             $table->string('title');
             $table->string('type');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->string('salary')->nullable();
             $table->text('description');
             $table->string('location');
-            $table->string('img');
+            $table->string('img')->nullable();
             $table->boolean('featured')->default(false);
             $table->timestamps();
 

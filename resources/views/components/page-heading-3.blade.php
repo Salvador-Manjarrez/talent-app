@@ -1,1 +1,1 @@
-<h2 class="text-xl text-left font-bold "> {{ $slot }} </h2> 
+<h2 class="text-xl text-left font-bold p-3 "> {{ $slot }} </h2>  

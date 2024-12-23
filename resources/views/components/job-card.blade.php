@@ -3,11 +3,18 @@
 
 <x-panel class="flex flex-col text-center">
 
-    <div class="self-start text-sm"> {{ $job->employer->name }} </div>
-                <div class="py-8">
+                <div>
+                @if($job->img)
+                    <img src="{{ asset('storage/' . $job->img) }}" alt="Job Image" class="rounded-xl d-block flex align-items-center p-5" width="600" style="min-height:340px;">
+                    @else
+                    <x-image-test :width="600"/> 
+                    @endif
+                </div>
+
+                <div class="py-5">
                     <h3 class="group-hover:text-red-600 text-xl font-bold transition-colors duration-300">
                         <a href=" /jobs/details/{{ $job['id'] }} " target="_blank">
-                        {{ $job->title }}
+                        {{ strtoupper($job->title) }}
                         </a>
                     </h3>
 
@@ -40,6 +47,15 @@
                     <p class="text-md mt-4"> <i class="fa-solid fa-hand-holding-heart fa-xl m-5"> </i> Presenting </p>
                     @endif
                     <!-- <p class="text-md mt-4"> <i class="fa-solid fa-location-dot fa-xl m-5"> </i> {{ $job->location }} </p> -->
+
+                    <div class="mob-hidden">
+
+                        @foreach($job->tags as $tag)
+                            <x-tag :$tag size="small" />
+                        @endforeach
+                       
+                    </div>
+                    
                     <a href="/jobs/details/{{ $job['id'] }}">
                     <x-btn-1> SEE MORE ></x-btn-1>
                     </a>
@@ -48,15 +64,11 @@
                 </div>
 
                 <div class="flex justify-between items-center mt-auto">
-                    <div>
 
-                        @foreach($job->tags as $tag)
-                            <x-tag :$tag size="small" />
-                        @endforeach
-                       
-                    </div>
 
                     <x-employer-logo :employer="$job->employer" :width="92"/>
+                        by: {{ $job->employer->name }} 
+
                     
     </div>
 

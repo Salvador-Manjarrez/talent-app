@@ -7,9 +7,13 @@
 
     @endif
 
-    <x-page-heading>Publish a post for everyone to see!</x-page-heading>
+    @auth
+    <x-page-heading>Welcome {{ Auth::user()->name }}!</x-page-heading>
+    @endauth
+    <x-page-heading-2>Publish a post for everyone to see!</x-page-heading-2>
+    <p class="p-3 text-center">Select the type of post you want to publish: </p>
+
     <p  class=" text-center"><i class="fa-solid fa-circle-exclamation fa-xl m-5"> </i> <strong>NOTE:</strong> You are not limited to one post, and can always create more if needed.</p> <br>
-    <p class="p-3 text-center">Please, select the type of post you want to publish: </p>
 
 
     <div class="text-center">

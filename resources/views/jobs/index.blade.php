@@ -15,8 +15,8 @@
                 <h1 class="font-bold text-4xl  p-5"> Welcome to the Raindance Talent Network!</h1>
 
                 <div class="px-5">
-                    <p class="p-5 text-lg mt-3 text-center w-50"> We connect the Raindance community and make everything possible with a place where they can find and create contacts, connections and collaborations worldwide!
-                        What are you waiting for? Start browsing and posting refreshing publications for all kind of Crews, Projects, Jobs and Talents.
+                    <p class="p-5 text-lg mt-3 text-center w-50"> We connect the Raindance community with a place where they can find and create contacts, connections and collaborations worldwide!
+                        Start browsing and posting publications for all kind of Crews, Projects, Jobs and Talents.
                     </p>
 
                     <a href="/register">
@@ -39,6 +39,8 @@
                 
             </x-panel>
         </section class="pt-6">
+
+        @auth
 
         <section>
             <style>
@@ -127,7 +129,7 @@
         <section class="pt-10">
             <x-page-heading> LATEST POSTS </x-page-heading>
 
-            <div class="grid lg:grid-cols-3 gap-8 mt-6">
+            <div class="grid lg:grid-cols-3 gap-8 mt-6" id="latest-post">
 
                 @foreach($jobs as $job)
                     <x-job-card :$job />
@@ -165,19 +167,31 @@
             <x-section-heading> NEWS </x-section-heading>
             <div class="mt-6 mb-5 space-y-6" id="newpanel">
                 <x-panel>
-                    <x-page-heading-2>A NEWS PANEL</x-page-heading-2>
-                    <x-image-test :width="400"/>
-                    <p class="p-5 text-left"> 
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                         in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                         sunt in culpa qui officia deserunt mollit anim id est laborum."
-                    </p>
-                    <x-btn-1> Learn more > </x-btn-1>
+                    <div class="grid lg:grid-cols-2 gap-4">
+                        <div>  
+                          <!--  <x-image-test :width="600"/> -->
+                          <x-page-heading-3>Raindance at <br> the University Shortfilm Festival (F.C.U)</x-page-heading-3>
+                            <img style="width:600px" src="https://assets.unlayer.com/projects/237/1734638808598-74_still%20(6).png" alt=" '74' from The Best of Raindance">
+                        </div>
+                    
+                        <div>
+                            <p class="p-5 text-left"> 
+                                 (Guadalajara, Mexico - November 2024) <br>
+                                The University Shortfilm Festival acts as a powerful catalyst for culture, opening a space for collaboration between the general community, students, artists and spectators, 
+                                fostering a meeting through the screening of short films for appreciation and critical evaluation. At the same time,
+                                tourism in the state is promoted by bringing national and international celebrities to participate in the festival,
+                                providing the opportunity to increase a work network beyond territorial limits from a safe environment,
+                                 becoming a platform for professional development.
+                            </p>
+                            <a href="https://www.fcu.mx/single-project" class="p-5" target="_blank"><x-btn-1> See more > </x-btn-1></a>
+                        </div>
+
+                    </div>
                 </x-panel>
             </div>
         </section>
 
+        @endauth
 
         <section>
 

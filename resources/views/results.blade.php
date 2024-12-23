@@ -1,5 +1,5 @@
 <x-layout>
-    <x-page-heading> Results </x-page-heading>
+    <x-page-heading> Results for "{{ $request }}"</x-page-heading>
     <hr>
  
 

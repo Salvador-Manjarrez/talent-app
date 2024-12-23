@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Validation\Rules\File;
 
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
@@ -70,14 +71,18 @@ class JobController extends Controller
             'salary' => ['required'],
             'location' => ['required'],
             'type' => ['required', Rule::in(['Crew', 'Job', 'Talent', 'Project'])],
-            'url' => ['required', 'active_url'],
-            'img' => ['required'],
+            'url' => ['nullable', 'active_url'],
+            'img' => ['nullable', File::types(['png', 'jpg', 'webp'])],
             'tags' => ['nullable'],
             'insta' => ['nullable', 'active_url'],
             'fb' => ['nullable', 'active_url'],
             'status' => ['required'],
 
         ]);
+
+        if ($request->hasFile('img')) {
+            $attributes['img'] = $request->file('img')->store('images', 'public');
+        }
 
         $attributes['featured'] = $request->has('featured');
 
@@ -98,11 +103,11 @@ class JobController extends Controller
        $attributes = $request->validate([
             'title' => ['required'],  
             'description' => ['required'],
-            'salary' => ['required'],
+            'salary' => ['nullable'],
             'location' => ['required'],
             'type' => ['required', Rule::in(['Crew', 'Job', 'Talent', 'Project'])],
-            'url' => ['required', 'active_url'],
-            'img' => ['required'],
+            'url' => ['nullable', 'active_url'],
+            'img' => ['nullable',  File::types(['png', 'jpg', 'webp'])],
             'tags' => ['nullable'],
             'gender' => ['required'],
             't_eye_color' => ['required'],
@@ -120,6 +125,11 @@ class JobController extends Controller
             'status' => ['required'],
 
         ]);
+
+        if ($request->hasFile('img')) {
+            $attributes['img'] = $request->file('img')->store('images', 'public');
+        }
+
 
         $attributes['featured'] = $request->has('featured');
 
@@ -142,11 +152,11 @@ class JobController extends Controller
        $attributes = $request->validate([
             'title' => ['required'],  
             'description' => ['required'],
-            'salary' => ['required'],
+            'salary' => ['nullable'],
             'location' => ['required'],
             'type' => ['required', Rule::in(['Crew', 'Job', 'Talent', 'Project'])],
-            'url' => ['required', 'active_url'],
-            'img' => ['required'],
+            'url' => ['nullable', 'active_url'],
+            'img' => ['nullable',  File::types(['png', 'jpg', 'webp'])],
             'tags' => ['nullable'],
             'gender' => ['required'],
             'nationality' => ['required'],
@@ -157,6 +167,11 @@ class JobController extends Controller
             'status' => ['required'],
 
         ]);
+
+        if ($request->hasFile('img')) {
+            $attributes['img'] = $request->file('img')->store('images', 'public');
+        }
+
 
         $attributes['featured'] = $request->has('featured');
 
@@ -180,8 +195,8 @@ class JobController extends Controller
             'description' => ['required'],
             'location' => ['required'],
             'type' => ['required', Rule::in(['Crew', 'Job', 'Talent', 'Project'])],
-            'url' => ['required', 'active_url'],
-            'img' => ['required'],
+            'url' => ['nullable', 'active_url'],
+            'img' => ['nullable',  File::types(['png', 'jpg', 'webp'])],
             'tags' => ['nullable'],
             'contact' => ['required'],
             'c_type' => ['required'],
@@ -191,6 +206,11 @@ class JobController extends Controller
             'status' => ['required'],
 
         ]);
+
+        if ($request->hasFile('img')) {
+            $attributes['img'] = $request->file('img')->store('images', 'public');
+        }
+
 
         $attributes['featured'] = $request->has('featured');
 

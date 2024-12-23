@@ -55,3 +55,25 @@ Route::middleware('guest')->group(function(){
 
 
 Route::delete('/logout', [SessionController::class, 'destroy'])->middleware('auth');
+
+
+
+/* RECOVER PASSWORD TEST:
+
+When receiving a request for a password reset on email, configure the code below with the email of the user, 
+entering the mail used to login and the new desired password in the 'example@mail.com & new_password' then visit route to gen  */
+
+Route::get('temporary-password-reset', function() {
+    $user = App\Models\User::where('email', 'example@mail.com')->first();
+    $user->password = Hash::make('new_password');
+    $user->save();
+ 
+    return 'Success!';
+});
+
+
+/* PW VIEW */
+
+Route::get('/reset', [LookController::class, 'reset']);
+
+

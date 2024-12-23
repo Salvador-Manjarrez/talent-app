@@ -1,41 +1,43 @@
 <div class="faq-container">
                 <details>
-                <summary> <strong> How does this work?</strong> </summary>
+                <summary> <strong> What is this?</strong> </summary>
                 <div>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-                 dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                 sunt in culpa qui officia deserunt mollit anim id est laborum."
+                This platform works as a network for our entire community with the main objective of connecting it and presenting networking
+                 between different disciplines with the option of both offering and requesting participation or interactions with artists, 
+                 projects, crews and jobs. By creating an account you will be able to make publications for other participants to see as well 
+                 as interact with the publications of other users.                 
                 </div>
                 </details> <br>
 
                 <details>
-                <summary> <strong> What is a Publisher?</strong> </summary>
+                <summary> <strong> How to use it?</strong> </summary>
                 <div>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-                 dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                 sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    <strong>First make sure you already created an account! </strong> <br><br>
+                    <strong>For looking at posts:</strong>
+                    It is as simple as browsing in this main page for the <strong><a href="#latest-post"><u>latest publications</u></a></strong>,
+                     select one of the four <strong><a href="#categories"><u>categories</u></a></strong> available 
+                     or <strong><a href="#search"><u>searching for something specific</u></a></strong> in the searchbar.
+                     <br><br>
+                     <strong>For posting:</strong>
+                     Just tap on the "post" button on the top right corner of your screen, this will take you to the page where you can choose which type
+                     of post you want to make, after selecting a type you will be able to fill a form with all the needed information to publish it, then click
+                     "create" and you are done!
                 </div>
                 </details> <br>
 
                 <details>
                 <summary> <strong> Is this cost free?</strong> </summary>
                 <div>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-                 dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                 sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    This app is currently free to use! You just have to <strong><a href="/register"><u>sign up</u></a></strong> in order to be able to use it.
                 </div>
                 </details> <br>
 
                 <details>
                 <summary> <strong> Another app question?</strong> </summary>
                 <div>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-                 dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                 sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    Let us know if you have any other relevant question related to this web application
+                    <strong><a href="jgonzalez@cecinematograficos.edu.mx?subject=Raindance App FAQ Question"><u>here</u></a> </strong>
+                    and we will try to give it our best answer!
                 </div>
                 </details> <br>
 

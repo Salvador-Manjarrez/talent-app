@@ -3,15 +3,17 @@
     <hr>
 
     <x-forms.form method="POST" action="/jobs/create-p" enctype="multipart/form-data">
+    <p class=" text-center"><i class="fa-solid fa-circle-exclamation fa-xl m-5"> </i> Labels marked with <strong> * are required</strong></p>
+
         <x-panel>
-            <x-forms.select label="Please select if you are looking for / or offering this item *" name="status" placeholder="Looking for? or Offering?">
+            <x-forms.select label="Are you looking for / or offering this item? *" name="status" placeholder="Looking for? or Offering?">
                         <option selected disabled> Select </option>
                         <option value="look"> I am looking for</option>
                         <option value="offer"> I am offering </option>
             </x-forms.select>
-            <x-forms.input label="Title*" name="title" placeholder="Project Title" maxlength="60"/>
-            <x-forms.input label="Description*" name="description" placeholder="Your description here..."/>
-            <x-forms.input label="Image* - (Type any text for now)" name="img" placeholder="..."/> 
+            <x-forms.input label="Title *" name="title" placeholder="Project Title" maxlength="60"/>
+            <x-forms.input label="Description *" name="description" placeholder="Your description here..." maxlength="500" />
+            <x-forms.input label="Image (Recommended)" name="img" id="img" type="file" placeholder="..."/> 
         </x-panel>
 
         <x-panel>
@@ -19,11 +21,11 @@
             <div class="grid lg:grid-cols-2 gap-x-4 gap-y-8">
               <!-- First Column -->
                 <div>  
-                <x-forms.input label="Link to work*" name="url" placeholder="https://acme.com/careers/actress"/>
+                <x-forms.input label="Link to work (Recommended, must be an active URL)" name="url" placeholder="https://yoursite.com/careers/actress"/>
                 </div>
              <!-- Second Column -->
                 <div>
-                    <x-forms.select label="Location*" name="location">
+                    <x-forms.select label="Location *" name="location">
                         <option selected disabled> Location </option>
                         <option> London, United Kingdom</option>
                         <option> Guadalajara, México</option>
@@ -42,14 +44,14 @@
             </div>
              <!-- END of 2 columns div -->
 
-            <x-forms.input label="Contact*" name="contact" placeholder="diana@contact.com"/>
+            <x-forms.input label="Contact *" name="contact" placeholder="diana@contact.com"/>
 
             <x-forms.select name="type" label="" hidden>
                 <option selected> Project</option>
             </x-forms.select>
 
             <x-forms.checkbox label="Feature" name="featured" />
-            <x-forms.input label="Tags (comma separated)" name="tags" placeholder="Filmmaking, Acting, Music"/>
+            <x-forms.input label="Tags (comma separated)" name="tags" placeholder="Filmmaking, Acting, Music" maxlength="50"/>
             <x-forms.input label="Instagram URL" name="insta" placeholder="https://www.instagram.com/yourusername/"/>
             <x-forms.input label="Facebook URL" name="fb" placeholder="https://www.facebook.com/yourusername/"/>
 
@@ -60,7 +62,7 @@
                 @endif
 
                 <h2 class="font-bold">Required Crew Roles: *</h2>
-                <p>Choose all that apply.</p>
+                <p><strong>Choose all that apply.</strong></p>
 
                 <label>
                 <input type="checkbox" name="c_type[]" value="Director"/>
@@ -130,7 +132,7 @@
                 @endif
 
                 <h2 class="font-bold">Required Talent: *</h2>
-                <p>Choose all that apply.</p>
+                <p><strong>Choose all that apply.</strong></p>
 
                 <label>
                 <input type="checkbox" name="t_type[]" value="Actor"/>

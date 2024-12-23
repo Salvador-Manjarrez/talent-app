@@ -25,13 +25,20 @@
         <div class="grid lg:grid-cols-2 gap-4">
                 <div>  
                     <h1 class="font-bold text-left text-2xl mb-8 mt-6 ml-6 text-red-500" > {{ $job->title }} </h1 > 
+                    <h2 class="ml-6"> <strong>This post is:</strong></h2>
                     @if($job->status == 'offer')
                           <x-page-heading-3> <i class="fa-solid fa-hand-holding-heart fa-xl m-5"></i> Presenting </x-page-heading-3>
                     @elseif($job->status == 'look')
                           <x-page-heading-3> <i class="fa-solid fa-person-circle-question fa-xl m-5"></i> Looking for </x-page-heading-3>
                     @endif
 
-                    <x-image-test :width="600"/>
+                    <!-- <x-image-test :width="600"/>  -->
+                     @if($job->img)
+                    <img src="{{ asset('storage/' . $job->img) }}" alt="Job Image" class="rounded-xl d-block flex align-items-center p-5" width="600">
+                    @else
+                    <x-image-test :width="600"/> 
+                    @endif
+
                 </div>
                 
                 
@@ -78,13 +85,18 @@
                               @endif
                               
                               <!-- TAGS -->
-
                               <p> <strong> <i class="fa-solid fa-tags fa-xl m-5"></i> Tags: </strong> </p>
                               <br>
                               @foreach($job->tags as $tag)
                                                   <x-tag :$tag />
                               @endforeach
                               <br> 
+
+
+                              <!-- CONTACT BUTTON -->
+                              <a href="#show-contact"> <x-btn-1> <i class="fa-solid fa-circle-check fa-xl m-5">  </i> CONTACT > </x-btn-1> </a>
+                          
+
 
                               @endauth
 
@@ -155,6 +167,8 @@
                 <strong> Appearance: </strong> <br> {{ $job->t_appearance }} 
           </p>
 
+          
+
       </x-panel>
 
       @elseif($job->type !== 'Talent')
@@ -164,6 +178,7 @@
 
 
   <x-panel>
+    <div id="show-contact"></div>
     <h1  class="mb-5 font-bold text-2xl"> <i class="fa-solid fa-circle-user fa-xl m-5">  </i>   Contact </h1>
     <x-employer-logo :employer="$job->employer" :width="92"/>
 

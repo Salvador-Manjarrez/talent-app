@@ -49,4 +49,8 @@ class LookController extends Controller
     public function posting() {
         return view('posting');
     }
+
+    public function reset() {
+        return view('reset');
+    }
 }

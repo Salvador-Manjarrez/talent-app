@@ -9,6 +9,7 @@
        <x-forms.input label="Password" name="password" type="password" />
       
        <x-forms.button> Log In </x-forms.button>
+       <a href="/reset">Forgot your password?</a>
 
     </x-forms.form> 
 

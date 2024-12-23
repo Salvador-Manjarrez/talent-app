@@ -22,32 +22,41 @@ class RegisteredUserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $userAttributes = $request->validate([
-                'name' => ['required'],
-                'email' => ['required', 'email', 'unique:users,email'],
-                'password' => ['required', 'confirmed', Password::min(6)], 
-        ]);
+   public function store(Request $request)
+{
+    // Validate the user attributes
+    $userAttributes = $request->validate([
+        'name' => ['required'],
+        'email' => ['required', 'email:rfc,dns', 'unique:users,email'],
+        'password' => ['required', 'confirmed', Password::min(6), 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/'],
+    ]);
 
-        $employerAttributes = $request->validate([
-            'employer' => ['required'],
-            'logo' => ['required', File::types(['png', 'jpg', 'webp']) ],
-        ]);
+    // Validate the employer attributes
+    $employerAttributes = $request->validate([
+        'employer' => ['required'],
+        'logo' => ['required', File::types(['png', 'jpg', 'webp'])],
+    ]);
 
-        $user = User::create($userAttributes);
+    // Create the user
+    $user = User::create($userAttributes);
 
-        $logoPath = $request->logo->store('logos');
+    // Store the logo in the public/logos directory
+    $logoName = time() . '-' . $request->logo->getClientOriginalName(); // Unique file name
+    $logoPath = $request->logo->move(public_path('logos'), $logoName); // Save in public/logos
 
-        $user->employer()->create([
-            'name' =>   $employerAttributes['employer'],
-            'logo' =>   $logoPath,  
-        ]);
+    // Create the employer and save the logo path
+    $user->employer()->create([
+        'name' => $employerAttributes['employer'],
+        'logo' => 'logos/' . $logoName, // Save relative path for accessibility
+    ]);
 
-        Auth::login($user);
+    // Log in the user
+    Auth::login($user);
 
-        return redirect('/posting')->with('success', 'Form submitted successfully!');
-    }
+    // Redirect with success message
+    return redirect('/posting')->with('success', 'Form submitted successfully!');
+}
+
 
  
 }
