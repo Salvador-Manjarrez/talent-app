@@ -21,14 +21,14 @@
                      <strong>For posting:</strong>
                      Just tap on the "post" button on the top right corner of your screen, this will take you to the page where you can choose which type
                      of post you want to make, after selecting a type you will be able to fill a form with all the needed information to publish it, then click
-                     "create" and you are done!
+                     "publish" and you are done!
                 </div>
                 </details> <br>
 
                 <details>
-                <summary> <strong> Is this cost free?</strong> </summary>
+                <summary> <strong> Is this free?</strong> </summary>
                 <div>
-                    This app is currently free to use! You just have to <strong><a href="/register"><u>sign up</u></a></strong> in order to be able to use it.
+                    Free! You just have to <strong><a href="/register"><u>sign up</u></a></strong> in order to be able to use it.
                 </div>
                 </details> <br>
 
@@ -36,7 +36,7 @@
                 <summary> <strong> Another app question?</strong> </summary>
                 <div>
                     Let us know if you have any other relevant question related to this web application
-                    <strong><a href="jgonzalez@cecinematograficos.edu.mx?subject=Raindance App FAQ Question"><u>here</u></a> </strong>
+                    <strong><a href="mailto:jgonzalez@cecinematograficos.edu.mx?subject=Raindance_App_FAQ_Question"><u>here</u></a> </strong>
                     and we will try to give it our best answer!
                 </div>
                 </details> <br>

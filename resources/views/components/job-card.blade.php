@@ -11,12 +11,11 @@
                     @endif
                 </div>
 
-                <div class="py-5">
-                    <h3 class="group-hover:text-red-600 text-xl font-bold transition-colors duration-300">
-                        <a href=" /jobs/details/{{ $job['id'] }} " target="_blank">
-                        {{ strtoupper($job->title) }}
-                        </a>
-                    </h3>
+                @if($job->status == 'look')
+                    <p class="text-md mt-4"> <i class="fa-solid fa-person-circle-question fa-xl m-5"> </i> Looking for this</p>
+                    @elseif($job->status == 'offer')
+                    <p class="text-md mt-4"> <i class="fa-solid fa-hand-holding-heart fa-xl m-5"> </i> Presenting this</p>
+                    @endif
 
                     <h4 class="text-red-500 text-xl font-bold">
                          @switch($job->type)
@@ -41,11 +40,15 @@
                          {{ $job->type }}
 
                      </h4>
-                     @if($job->status == 'look')
-                    <p class="text-md mt-4"> <i class="fa-solid fa-person-circle-question fa-xl m-5"> </i> Looking for </p>
-                    @elseif($job->status == 'offer')
-                    <p class="text-md mt-4"> <i class="fa-solid fa-hand-holding-heart fa-xl m-5"> </i> Presenting </p>
-                    @endif
+
+                <div class="py-5">
+
+                    <h3 class=" p-3 group-hover:text-red-600 text-xl font-bold transition-colors duration-300">
+                        <a href=" /jobs/details/{{ $job['id'] }} " target="_blank">
+                        {{ strtoupper($job->title) }}
+                        </a>
+                    </h3>
+
                     <!-- <p class="text-md mt-4"> <i class="fa-solid fa-location-dot fa-xl m-5"> </i> {{ $job->location }} </p> -->
 
                     <div class="mob-hidden">
@@ -67,7 +70,14 @@
 
 
                     <x-employer-logo :employer="$job->employer" :width="92"/>
-                        by: {{ $job->employer->name }} 
+
+                    <a href=" /jobs/details/{{ $job['id'] }}" class="self-start text-sm text-gray-400 p-3">by: <strong>{{ $job->employer->name }}</strong>  </a>
+
+                    @if($job->employer->pro == "pro")
+                        <i class="fa-solid fa-certificate fa-2xl m-5" style="color:#bcdc04;"> <p style="font-size:10px; color:black;"> PRO </p> </i> 
+                    @else
+                    @endif
+
 
                     
     </div>

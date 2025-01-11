@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CEC Talent </title>
 
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +30,7 @@
         <nav class="flex justify-between items-center py-4 border-b border-white/20 bg-black shadow-lg"> 
             <div>
                 <a href="/">
-                    <img style="width: 10rem" class="nav-hidden" src=" {{ Vite::asset('resources/images/raindance-logo-white.png') }} " alt="Raindance Film School Logo">
+                    <img style="width: 10rem" class="nav-hidden" src="https://assets.unlayer.com/projects/237/1735855967921-logo_raindance_x_cec_v2_-removebg-preview.png" alt="Raindance x CEC Film School Logo">
                 </a>
             </div>
             <div class="space-x-6 font-bold">
@@ -38,7 +39,7 @@
                 <a href="/help" class="hover:text-red-500 transition-colors duration-300">Help</a>
                 <a href="/#search" class="hover:text-red-500 transition-colors duration-300">Search</a>
                 <a href="/about" class="hover:text-red-500 transition-colors duration-300">About</a>
-                <a href="https://raindance.ac.uk/contact-us/" target="_blank" class="hover:text-red-500 transition-colors duration-300">Contact</a>
+                <a href="#footer" class="hover:text-red-500 transition-colors duration-300">Contact</a>
             </div>
 
             @auth

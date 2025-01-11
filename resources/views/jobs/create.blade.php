@@ -5,7 +5,7 @@
     <x-forms.form method="POST" action="/jobs" enctype="multipart/form-data">
     <p class=" text-center"><i class="fa-solid fa-circle-exclamation fa-xl m-5"> </i> Labels marked with <strong> *  are required</strong></p>
 
-        <x-forms.select label="Are you looking for / or offering this item? *" name="status" placeholder="Looking for? or Offering?">
+        <x-forms.select label="Are you looking for / or offering this job? *" name="status" placeholder="Looking for? or Offering?">
                         <option selected disabled> Select </option>
                         <option value="look"> I am looking for</option>
                         <option value="offer"> I am offering </option>

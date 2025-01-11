@@ -1,4 +1,10 @@
 <x-layout>
+          @if($job->employer->pro == "pro")
+          <div style="margin:0 auto; text-align:center;">
+              <i class="fa-solid fa-certificate fa-2xl m-5" style="color:#bcdc04; margin: 0 auto;"> <p style="font-size:10px; color:black;"> PRO </p> </i> 
+          </div>
+          @else
+          @endif
 
           @switch($job->type)
           @case('Job')
@@ -24,13 +30,20 @@
 
         <div class="grid lg:grid-cols-2 gap-4">
                 <div>  
-                    <h1 class="font-bold text-left text-2xl mb-8 mt-6 ml-6 text-red-500" > {{ $job->title }} </h1 > 
-                    <h2 class="ml-6"> <strong>This post is:</strong></h2>
+                    <h1 class="font-bold text-left text-2xl mt-6 ml-6 text-white" >TITLE : </h1 > 
+                    <h1 class="font-bold text-left text-2xl mb-8 mt-6 ml-6 text-red-500" >{{ strtoupper($job->title) }} </h1 > 
+                    
                     @if($job->status == 'offer')
-                          <x-page-heading-3> <i class="fa-solid fa-hand-holding-heart fa-xl m-5"></i> Presenting </x-page-heading-3>
+                          <i class="fa-solid fa-hand-holding-heart fa-xl m-5"></i> 
+                          <p class="ml-5"> <strong> Presenting</strong> </p>
+                          <h2 class="ml-6"> <strong> this {{ strtolower($job->type) }}</strong></h2>
                     @elseif($job->status == 'look')
-                          <x-page-heading-3> <i class="fa-solid fa-person-circle-question fa-xl m-5"></i> Looking for </x-page-heading-3>
+                          <i class="fa-solid fa-person-circle-question fa-xl m-5"></i>
+                          <p class="ml-5">  <strong> Looking for</strong> </p>
+                          <h2 class="ml-6"> <strong> this {{ strtolower($job->type) }}</strong></h2>
                     @endif
+
+                    
 
                     <!-- <x-image-test :width="600"/>  -->
                      @if($job->img)
@@ -184,11 +197,17 @@
 
     <h1 class="mt-3">by:</h1>
 
+    @if($job->employer->pro == "pro")
+                        <i class="fa-solid fa-certificate fa-2xl m-5" style="color:#bcdc04;"> <p style="font-size:10px; color:black; margin-left:5px;"> PRO </p> </i> 
+    @else
+    @endif
+
+
     <x-page-heading-3>
          {{ $job->employer->name }} 
      </x-page-heading-3>
      <br>
-     <p> Created at: <strong>  {{ $job->created_at }} </strong> </p>
+     <p> Published : <strong>  {{ $job->created_at }} </strong> </p>
 
      <a href=" {{ $job->url }} " target="_blank"> 
         <x-btn-2> <i class="fa-solid fa-link fa-xl m-5">  </i> Link to work ></x-btn-2>

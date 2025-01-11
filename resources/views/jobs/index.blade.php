@@ -10,12 +10,12 @@
 
 
         <section class="text-center pt-6">
-        <img style="max-width:30%; margin:0 auto;" src=" {{ Vite::asset('resources/images/raindance-logo-white.png') }} " alt="">
+        <img style="max-width:80%; margin:0 auto;" src="https://assets.unlayer.com/projects/237/1735855967921-logo_raindance_x_cec_v2_-removebg-preview.png" alt="">
             <x-panel>
-                <h1 class="font-bold text-4xl  p-5"> Welcome to the Raindance Talent Network!</h1>
+                <h1 class="font-bold text-4xl  p-5"> Welcome to our Film School Talent Network!</h1>
 
                 <div class="px-5">
-                    <p class="p-5 text-lg mt-3 text-center w-50"> We connect the Raindance community with a place where they can find and create contacts, connections and collaborations worldwide!
+                    <p class="p-5 text-lg mt-3 text-center w-50"> We connect the film and arts school's community with a place where they can find and create contacts, connections and collaborations worldwide!
                         Start browsing and posting publications for all kind of Crews, Projects, Jobs and Talents.
                     </p>
 
@@ -127,12 +127,16 @@
 
 
         <section class="pt-10">
-            <x-page-heading> LATEST POSTS </x-page-heading>
+            <x-page-heading> PRO POSTS </x-page-heading>
 
             <div class="grid lg:grid-cols-3 gap-8 mt-6" id="latest-post">
 
+
                 @foreach($jobs as $job)
+                @if($job->employer->pro == "pro")
                     <x-job-card :$job />
+                    @else
+                    @endif  
                 @endforeach
 
             </div>
@@ -147,7 +151,7 @@
 
 
         <section>
-            <x-section-heading> All Posts </x-section-heading>
+        <x-page-heading> ALL POSTS </x-page-heading>
             <div class="mt-6 space-y-6">
 
                 @foreach($jobs as $job)
@@ -164,7 +168,7 @@
 
 
         <section>
-            <x-section-heading> NEWS </x-section-heading>
+        <x-page-heading> NEWS </x-page-heading>
             <div class="mt-6 mb-5 space-y-6" id="newpanel">
                 <x-panel>
                     <div class="grid lg:grid-cols-2 gap-4">
@@ -186,6 +190,8 @@
                             <a href="https://www.fcu.mx/single-project" class="p-5" target="_blank"><x-btn-1> See more > </x-btn-1></a>
                         </div>
 
+                        
+
                     </div>
                 </x-panel>
             </div>
@@ -195,7 +201,7 @@
 
         <section>
 
-        <x-page-heading>FAQs</x-page-heading>
+        <x-page-heading> FAQs </x-page-heading>
 
         <x-faqs/>
 

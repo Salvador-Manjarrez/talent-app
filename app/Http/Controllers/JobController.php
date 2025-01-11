@@ -28,7 +28,7 @@ class JobController extends Controller
         //     'tags' => Tag::all(),
         // ]);
 
-        $jobs = Job::latest()->with(['employer', 'tags'])->paginate(6);
+        $jobs = Job::latest()->with(['employer', 'tags'])->paginate(9);
         return view('jobs.index', [
             'jobs' => $jobs,
             'tags' => Tag::all(),

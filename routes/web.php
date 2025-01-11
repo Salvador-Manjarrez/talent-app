@@ -58,10 +58,10 @@ Route::delete('/logout', [SessionController::class, 'destroy'])->middleware('aut
 
 
 
-/* RECOVER PASSWORD TEST:
+/* RECOVER PASSWORD
 
 When receiving a request for a password reset on email, configure the code below with the email of the user, 
-entering the mail used to login and the new desired password in the 'example@mail.com & new_password' then visit route to gen  */
+entering the mail used to login and the new desired password in the 'example@mail.com & new_password' then visit route to generate  */
 
 Route::get('temporary-password-reset', function() {
     $user = App\Models\User::where('email', 'example@mail.com')->first();

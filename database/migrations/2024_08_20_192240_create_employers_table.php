@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('logo');
             $table->timestamps();
+            $table->string('imdb')->nullable();
+            $table->string('card');
+            $table->string('pro')->default('test-default');
         });
     }
 
