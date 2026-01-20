@@ -1,6 +1,6 @@
-A talent network app developed for an Art College with PHP's Laravel framework. 
+A talent network web app developed for an Art College with PHP's Laravel framework. 
 
-The app lets users register and login, set their profiles and publish a variety of posts based on specifics of the context on every art or role complemented with images, URLs and descriptions. It makes use of a lot of the marvelous helpers included in Laravel, but does not use starter kits like Breeze or Jet. It basically functions as a network hub for students around the world to connect within the school's enviroment and to help browse dfferent kind of projects, talents and crew members.
+The app lets users register and login, set their profiles and publish a variety of posts based on specific inputs and data from the context on every art or role complemented with images, URLs, hyperlinks and descriptions. It basically functions as a network hub for students around the world to connect within the school's enviroment and to help browse different kinds of projects, talents and crew members. It makes use of a lot of the marvelous helpers included in Laravel, but does not use starter kits like Breeze or Jet. 
 
 As of now, the app's version is 1.0 and will keep receiving updates and evaluations for further improvement.
 
